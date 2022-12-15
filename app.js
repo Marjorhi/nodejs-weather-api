@@ -6,16 +6,22 @@ const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${ap
 
 //Making http request
 request({ url:url, json:true }, (error, response) => {
-    console.log(response.body.main.temp + ' is the temperature out there and the wind degree is ' + response.body.wind.deg) //Printing out the temperature and wind degree
+    if(error){
+        console.log('Unable to connect');
+      } else {
+        console.log(response.body.main.temp + ' is the temperature out there and the wind degree is ' + response.body.wind.deg);
+    }
+
+//    console.log(response.body.main.temp + ' is the temperature out there and the wind degree is ' + response.body.wind.deg) //Printing out the temperature and wind degree
 })
 
 //Customizing http request
-const geocodeURL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
+// const geocodeURL = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
 
-request({ url:geocodeURL, json:true }, (error, response) => {
-    const latitude = response.body.coord.lat
-    const longitude = response.body.coord.lon
+// request({ url:geocodeURL, json:true }, (error, response) => {
+//   const latitude = response.body.coord.lat
+//   const longitude = response.body.coord.lon
 
-    console.log(latitude, longitude)
-})
+//    console.log(latitude, longitude)
+//})
 
