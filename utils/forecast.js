@@ -11,7 +11,7 @@ const forecast = (latitude, longitude, callback) => {
         } else if (response.body.cod !== 200) {
           callback('Unable to find location!', undefined);
         } else {
-          callback(undefined, response.body.main.temp_max + ' is the temperature out there and the wind degree is ' + response.body.wind.deg + ' in ' + response.body.name);
+          callback(undefined, response.body.main.temp_max + ' is the temperature out there and the wind degree is ' + response.body.wind.deg);
         }
       });
 }

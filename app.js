@@ -2,8 +2,12 @@ const request = require('request')
 const geoCode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 
+const cityName = process.argv[2] //Accept location via command line argument
 
-geoCode('Sorsogon City', (error, data) => {
+console.log(process.argv)
+
+
+geoCode(cityName, (error, data) => {
         if (error) {
             return console.log(error)
         }
@@ -12,6 +16,7 @@ geoCode('Sorsogon City', (error, data) => {
                 return console.log(error)
             }
             console.log(data.location)
+            console.log(forecasData)
     })
 })
 
