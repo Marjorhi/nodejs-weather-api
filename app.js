@@ -1,5 +1,26 @@
 const request = require('request')
 const geoCode = require('./utils/geocode')
+const forecast = require('./utils/forecast')
+
+
+geoCode('Sorsogon City', (error, data) => {
+    if (error) {
+        console.log('Error', error);
+      } else {
+        console.log('Data',data);
+      }
+})
+
+forecast('12.9708', '124.0053', (error, data) => {
+    if (error) {
+        console.log('Error', error);
+      } else {
+        console.log('Data',data);
+      }
+})
+
+
+
 // const url = `http://api.openweathermap.org/data/2.5/weather?q=&appid=${apiKey}&units=metric`
 
 // //Making http request
@@ -24,10 +45,3 @@ const geoCode = require('./utils/geocode')
 //     console.log(latitude, longitude)
 // })
 
-geoCode('Sorsogon City', (error, data) => {
-    if (error) {
-        console.log('Error', error);
-      } else {
-        console.log('Data',data);
-      }
-})
