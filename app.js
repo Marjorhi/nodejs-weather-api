@@ -35,7 +35,13 @@ const geoCode = (cityName, callback) => {
             callback('Unable to connect', undefined) //Callback with an error message
         } else if (response.body.name === false) {
             callback('Try another search', undefined) //Callback with an error message
-        } 
+        } else {
+            callback(undefined, {
+                latitude : response.body.coord.lat,
+                longitude : response.body.coord.lon,
+                location : response.body.name
+            }) //Callback with the weather data
+        }
     })
 }
 
