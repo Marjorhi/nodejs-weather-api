@@ -4,20 +4,19 @@ const forecast = require('./utils/forecast')
 
 
 geoCode('Sorsogon City', (error, data) => {
-    if (error) {
-        console.log('Error', error);
-      } else {
-        console.log('Data',data);
-      }
+        if (error) {
+            return console.log(error)
+        }
+        forecast(data.latitude, data.longitude, (error, forecasData) => {
+            if (error) {
+                return console.log(error)
+            }
+            console.log(data.location)
+    })
 })
 
-forecast('12.9708', '124.0053', (error, data) => {
-    if (error) {
-        console.log('Error', error);
-      } else {
-        console.log('Data',data);
-      }
-})
+
+
 
 
 

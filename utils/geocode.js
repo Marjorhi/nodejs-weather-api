@@ -8,9 +8,9 @@ const geoCode = (cityName, callback) => {
     
     request({ url: geocodeURL, json:true }, (error, response) => {
         if (error) {
-            callback('Unable to connect to weather service', undefined) //Callback with an error message
+            callback('Unable to connect to weather service!', undefined) //Callback with an error message
         } else if (response.body.name === false) {
-            callback('Try another search', undefined) //Callback with an error message
+            callback('Try another search!', undefined) //Callback with an error message
         } else {
             callback(undefined, {
                 latitude : response.body.coord.lat,
