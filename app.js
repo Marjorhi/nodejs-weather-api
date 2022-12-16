@@ -7,15 +7,15 @@ const cityName = process.argv[2] //Accept location via command line argument
 if (!cityName) {
     console.log ('Please provide an address') //Get an error message when no address is provided
 } else {
-    geoCode(cityName, (error, data) => {
+    geoCode(cityName, (error, {longitude, latitude, location} = {}) => { //Property shorthand in weather app
         if (error) {
             return console.log(error)
         }
-        forecast(data.latitude, data.longitude, (error, forecasData) => {
+        forecast(latitude, longitude, (error, forecasData) => {
             if (error) {
                 return console.log(error)
             }
-            console.log(data.location)
+            console.log(location)
             console.log(forecasData)
     })
 })
