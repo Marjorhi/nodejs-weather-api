@@ -4,10 +4,10 @@ const forecast = require('./utils/forecast')
 
 const cityName = process.argv[2] //Accept location via command line argument
 
-console.log(process.argv)
-
-
-geoCode(cityName, (error, data) => {
+if (!cityName) {
+    console.log ('Please provide an address') //Get an error message when no address is provided
+} else {
+    geoCode(cityName, (error, data) => {
         if (error) {
             return console.log(error)
         }
@@ -19,6 +19,11 @@ geoCode(cityName, (error, data) => {
             console.log(forecasData)
     })
 })
+}
+console.log(process.argv)
+
+
+
 
 
 
