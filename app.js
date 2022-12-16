@@ -28,8 +28,6 @@ console.log(process.argv)
 
 
 
-
-
 // const url = `http://api.openweathermap.org/data/2.5/weather?q=&appid=${apiKey}&units=metric`
 
 // //Making http request
